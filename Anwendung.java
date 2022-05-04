@@ -10,18 +10,23 @@ public class Anwendung
      */
     public Anwendung ()
     {
-        Anwendung anwendung = new Anwendung(75);
+        Anwendung anwendung = new Anwendung(25, 50);
     }
     
-    public Anwendung (int pRadius)
+    public Anwendung (int pRadius, int pFadenlaenge)
     {
         // Objekte und Zustandsvariable
         meinFenster = new Fenster(400, 400);
         meinFenster.setzeTitel("Schmuck");
         
         kugel1 = new Kugel();
-        kugel1.radius = pRadius;
+        kugel1.setzeRadius(pRadius);
+        kugel1.setzeFadenlaenge(pFadenlaenge);
         kugel1.zeige();
+        
+        kugel2 = new Kugel();
+        kugel2.setzeRadius(pRadius);
+        kugel2.setzeFadenlaenge(pFadenlaenge);
+        kugel2.zeige();
     }
-
   }
