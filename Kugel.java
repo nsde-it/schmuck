@@ -10,10 +10,16 @@ public class Kugel {
     
     /** Konstruktor */
     public Kugel() {
-        stift = new Stift();
-        this.setzePosition(Hilfe.zufall(50, 350), Hilfe.zufall(50, 350));
+        Kugel kugel = new Kugel(Hilfe.zufall(50, 350), Hilfe.zufall(50, 350));
     }
 
+    public Kugel(int pX, int pY) {
+        this.x = pX;
+        this.y = pY;
+        stift = new Stift();
+        this.setzePosition(pX, pY);
+    }
+    
     public void zeige() {
         stift.normal();
         stift.bewegeBis(this.x, this.y);
