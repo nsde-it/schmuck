@@ -11,20 +11,24 @@ public class Kugel {
     /** Konstruktor */
     public Kugel() {
         stift = new Stift();
-        stift.bewegeBis(Hilfe.zufall(50, 500), Hilfe.zufall());
+        this.setzePosition(Hilfe.zufall(50, 350), Hilfe.zufall(50, 350));
     }
 
     public void zeige() {
         stift.normal();
+        stift.bewegeBis(this.x, this.y);
+        stift.dreheBis(90);
+        stift.runter();
+        stift.bewegeUm(this.fadenlaenge);
+        stift.hoch();
         stift.setzeFuellMuster(Muster.GEFUELLT);
-        stift.kreis(x,y,radius);
-        stift.bewegeUm(50);
+        stift.kreis(this.x, this.y, this.radius);
     }
 
     public void loesche() {
        stift.setzeFuellMuster(Muster.GEFUELLT);
        stift.radiere();
-       stift.kreis(x,y,radius);          
+       stift.kreis(this.x, this.y, this.radius);
     }
 
     public void setzePosition(int pX, int pY) {
@@ -50,7 +54,7 @@ public class Kugel {
     }
     
     public int gibY() {
-        return this.Y;
+        return this.y;
     }
     
     public int gibFadenlaenge() {
